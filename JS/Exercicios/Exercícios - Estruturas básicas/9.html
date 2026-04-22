@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem de Números</title>
+</head>
+<body>
+    <script>
+        let pares = 0;
+        let impares = 0;
+        let maioresQue10 = 0;
+
+        for (let i = 1; i <= 10; i++) {
+            let numero = parseInt(prompt("Informe o " + i + "º número:"));
+            
+            if (numero % 2 === 0) {
+                pares++;
+            } else {
+                impares++;
+            }
+
+            if (numero > 10) {
+                maioresQue10++;
+            }
+        }
+
+        document.write("Quantidade de números pares: " + pares + "<br>");
+        document.write("Quantidade de números ímpares: " + impares + "<br>");
+        document.write("Quantidade de números maiores que 10: " + maioresQue10 + "<br>");
+    </script>
+</body>
+</html>

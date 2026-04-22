@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript</title>
+    <script>
+
+      //void
+      //retorno
+      /*
+      EXEMPLO de função com retorno e com parametros
+      */
+      let largura     = prompt('Digite a largura do terreno em metros')
+      let comprimento = prompt('Digite o comprimento do terreno em metros')
+      //chama a função
+      let area = calcularAreaTerreno(largura, comprimento)
+
+      document.write('O terreno possui ' + area + ' metros quadrados')
+
+      function calcularAreaTerreno ( largura, comprimento ) {
+      
+        //lógica
+        let area = largura * comprimento
+
+        return area
+
+      }
+
+    </script>
+    
+  </head>
+
+  <body>
+  </body>
+</html>

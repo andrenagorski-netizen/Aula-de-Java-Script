@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Personagem</title>
+</head>
+<body>
+    <script>
+        // Arrays com as opções de cada categoria
+        const classes = ["Guerreiro", "Mago", "Arqueiro", "Paladino", "Assassino"]
+        const armas   = ["Espada", "Cajado", "Arco", "Adaga", "Machado"]
+        const poderes = ["Invisibilidade", "Fogo", "Gelo", "Raio", "Cura"]
+
+        // Função para sortear um item aleatório de um array
+        function sortear(array) {
+            const posicao = Math.floor(Math.random() * array.length)
+            return array[posicao]
+        }
+
+        // Sorteia 1 item de cada categoria
+        const classeSorteada = sortear(classes)
+        const armaSorteada   = sortear(armas)
+        const poderSorteado  = sortear(poderes)
+
+        // Monta a mensagem do personagem
+        const mensagem = `Seu personagem é um ${classeSorteada} com ${armaSorteada} que possui poder de ${poderSorteado}.`
+
+        // Exibe no console e na página
+        console.log(mensagem)
+        document.write(mensagem)
+    </script>
+</body>
+</html>

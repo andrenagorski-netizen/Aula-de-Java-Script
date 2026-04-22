@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combo de Lanche</title>
+</head>
+<body>
+    <script>
+        // Arrays com as opções de cada categoria
+        const paes    = ["Pão Francês", "Pão de Batata", "Pão Integral", "Pão Brioche", "Pão Ciabatta"]
+        const carnes  = ["Hambúrguer", "Frango Grelhado", "Costela BBQ", "Picanha", "Calabresa"]
+        const queijos = ["Queijo Cheddar", "Queijo Suíço", "Queijo Prato", "Queijo Mussarela", "Queijo Gouda"]
+        const bebidas = ["Coca-Cola", "Suco de Laranja", "Água com Gás", "Milkshake de Chocolate", "Limonada"]
+
+        // Função para sortear um item aleatório de um array
+        function sortear(array) {
+            const posicao = Math.floor(Math.random() * array.length)
+            return array[posicao]
+        }
+
+        // Sorteia 1 item de cada categoria
+        const paeSorteado    = sortear(paes)
+        const carneSorteada  = sortear(carnes)
+        const queijoSorteado = sortear(queijos)
+        const bebidaSorteada = sortear(bebidas)
+
+        // Monta a mensagem do combo
+        const mensagem = `Seu combo de hoje é: ${paeSorteado} com ${carneSorteada}, ${queijoSorteado} e ${bebidaSorteada}!`
+
+        // Exibe no console e na página
+        console.log(mensagem)
+        document.write(mensagem)
+    </script>
+</body>
+</html>

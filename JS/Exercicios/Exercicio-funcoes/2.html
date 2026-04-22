@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador com While</title>
+</head>
+<body>
+
+    <h2>Contador com While</h2>
+
+    <label>Início:</label>
+    <input type="number" id="inicio"><br><br>
+
+    <label>Fim:</label>
+    <input type="number" id="fim"><br><br>
+
+    <button onclick="contar()">Contar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function contar() {
+            let inicio = parseInt(document.getElementById("inicio").value);
+            let fim = parseInt(document.getElementById("fim").value);
+            let resultado = document.getElementById("resultado");
+
+            // Limpa resultado
+            resultado.innerHTML = "";
+
+            // Validação
+            if (isNaN(inicio) || isNaN(fim)) {
+                resultado.innerHTML = "Por favor, informe os dois números.";
+                return;
+            }
+
+            if (inicio > fim) {
+                resultado.innerHTML = "Erro: o início não pode ser maior que o fim.";
+                return;
+            }
+
+            // Contador com while
+            let i = inicio;
+            while (i <= fim) {
+                resultado.innerHTML += i + " ";
+                i++;
+            }
+        }
+    </script>
+
+</body>
+</html>

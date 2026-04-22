@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio de Equipes</title>
+</head>
+<body>
+    <script>
+        // Array com 10 nomes
+        const nomes = [
+            "Ana", "Carlos", "João", "Maria", "Pedro",
+            "Lucas", "Fernanda", "Rafael", "Juliana", "Bruno"
+        ]
+        const posicao = Math.floor(Math.random() * nomes.length)
+        const sorteado = nomes[posicao]
+
+        console.log("Nome sorteado:", sorteado) 
+        document.write("Nome sorteado: " + sorteado)    
+
+        // Embaralha o array usando o algoritmo Fisher-Yates
+        function embaralhar(arr) {
+            const copia = [...arr] // cria uma cópia para não alterar o original
+            for (let i = copia.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copia[i], copia[j]] = [copia[j], copia[i]] // troca os elementos
+            }
+            return copia
+        }
+
+        // Embaralha os nomes
+        const nomesEmbaralhados = embaralhar(nomes)
+
+        // Divide em duas equipes (os nomes não se repetem pois vieram do mesmo array)
+        const equipeA = nomesEmbaralhados.slice(0, 5)
+        const equipeB = nomesEmbaralhados.slice(5, 10)
+
+        // Exibe no console
+        console.log("=== SORTEIO DE EQUIPES ===")
+        console.log("Equipe A:", equipeA)
+        console.log("Equipe B:", equipeB)
+    </script>
+</body>
+</html>
