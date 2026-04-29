@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exemplo 2 com While</h1>
+    <script>
+        let contpares = 0 //inicia com 0
+        let contimpares = 0 //inicia com 0
+        let numero = -1 //inicia com -1
+        while(numero != 0){ //enquanto numero for diferente de 0
+            let numero = parseInt(prompt('Informe um número: (0 = encerra) '))
+             if(numero == 0){ //se o numero for 0
+                break //sai do while
+             }else{
+                if(numero % 2 == 0){ //se o numero for par
+                    contpares++ //incrementa o contador de pares
+                }else{ //se o numero for impar
+                    contimpares++ //incrementa o contador de impares
+                }
+             }
+        }
+        document.write('Quantidade de números pares: ' + contpares + '<br>') //escreve a quantidade de numeros pares
+        document.write('Quantidade de números ímpares: ' + contimpares + '<br>') //escreve a quantidade de numeros impares
+       
+       
+    </script>
+</body>
+</html>

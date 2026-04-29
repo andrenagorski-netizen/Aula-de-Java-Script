@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List com LocalStorage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 350px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input {
+      width: 70%;
+      padding: 8px;
+    }
+
+    button {
+      padding: 8px;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: #eee;
+      margin: 5px 0;
+      padding: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 5px;
+    }
+
+    .delete {
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .clear {
+      width: 100%;
+      margin-top: 10px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2> Lista de Tarefas</h2>
+  
+  <input type="text" id="taskInput" placeholder="Digite uma tarefa">
+  <button onclick="addTask()">Adicionar</button>
+
+  <ul id="taskList"></ul>
+
+  <button class="clear" onclick="clearTasks()">Limpar Tudo</button>
+</div>
+
+<script>
+  // Carregar tarefas ao iniciar
+  document.addEventListener("DOMContentLoaded", loadTasks);
+
+  function getTasks() {
+    return JSON.parse(localStorage.getItem("tasks")) || [];
+  }
+
+  function saveTasks(tasks) {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
+
+  function loadTasks() {
+    const tasks = getTasks();
+    const list = document.getElementById("taskList");
+    list.innerHTML = "";
+
+    tasks.forEach((task, index) => {
+      const li = document.createElement("li");
+      li.textContent = task;
+
+      const btn = document.createElement("button");
+      btn.textContent = "X";
+      btn.classList.add("delete");
+      btn.onclick = () => removeTask(index);
+
+      li.appendChild(btn);
+      list.appendChild(li);
+    });
+  }
+
+  function addTask() {
+    const input = document.getElementById("taskInput");
+    const task = input.value.trim();
+
+    if (task === "") {
+      alert("Digite uma tarefa!");
+      return;
+    }
+
+    const tasks = getTasks();
+    tasks.push(task);
+    saveTasks(tasks);
+
+    input.value = "";
+    loadTasks();
+  }
+
+  function removeTask(index) {
+    const tasks = getTasks();
+    tasks.splice(index, 1);
+    saveTasks(tasks);
+    loadTasks();
+  }
+
+  function clearTasks() {
+    localStorage.removeItem("tasks");
+    loadTasks();
+  }
+</script>
+
+</body>
+</html>
+</body>
+</html>

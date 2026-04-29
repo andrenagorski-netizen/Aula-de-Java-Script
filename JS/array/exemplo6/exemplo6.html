@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--ADICIONAR 5 NUMEROS NO ARRAY E SOMAR-->
+    <script>
+        const numeros = []; //cria um array vazio
+        let soma = 0; //cria uma variavel vazia para somar os numeros
+
+        for (let i = 0; i < 5; i++) {
+            let num = Number(prompt("Digite um número:")); //prompt = caixa de digitação
+            numeros.push(num); //adiciona um item no array
+            soma += num;
+        }
+
+        console.log("Array:", numeros);
+        console.log("Soma:", soma);
+    </script>
+</body>
+</html>
